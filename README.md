@@ -1,4 +1,4 @@
-# Copyright Red Team Template for Azure OpenAI Service
+# Copyright Protection Red Teaming Template for Azure OpenAI Service
 ![alt text](assets/generated_00.png)
 
 > Dall-E 3 Prompt: "Red Team Template for Azure OpenAI Service"
