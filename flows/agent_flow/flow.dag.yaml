@@ -1,0 +1,41 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    is_chat_history: true
+    default: []
+  question:
+    type: string
+    is_chat_input: true
+    default: test
+  questionid:
+    type: string
+    default: "1"
+outputs:
+  answer:
+    type: string
+    reference: ${red_team_chat.output}
+    is_chat_output: true
+  questionid:
+    type: string
+    reference: ${inputs.questionid}
+nodes:
+- name: meta_prompt
+  type: prompt
+  source:
+    type: code
+    path: meta_prompt.jinja2
+  inputs: {}
+- name: red_team_chat
+  type: python
+  source:
+    type: code
+    path: red_team_chat.py
+  inputs:
+    connection: Default_AzureOpenAI
+    modelname: gpt-35-turbo
+    question: ${inputs.question}
+    chat_history: ${inputs.chat_history}
+    metaprompt: ${meta_prompt.output}
