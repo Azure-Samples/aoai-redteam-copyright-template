@@ -1,6 +1,8 @@
 # Copyright Protection Red Teaming Template for Azure OpenAI Service
 ![alt text](assets/generated_00.png)
 
+This repository contains code and resources to perform evaluations of generative AI solutions built on Azure OpenAI. The provided example evaluations such as guided red teaming and systematic measurement, are designed to detect the output of third-party content from generative AI implementations.  The repository also provides a structure for performing evaluations and retaining reports of results and mitigations, which can be provided to Microsoft in the event of a claim. This aligns with the practices of red teaming large language models (LLMs) and responsible AI practices for Azure OpenAI models.
+
 > Dall-E 3 Prompt: "Red Team Template for Azure OpenAI Service"
 1. **Prerequisites**:
     - Ensure you have the following prerequisites installed:
