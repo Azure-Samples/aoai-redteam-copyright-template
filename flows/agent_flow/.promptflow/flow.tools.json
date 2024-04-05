@@ -1,0 +1,73 @@
+{
+  "package": {},
+  "code": {
+    "chat.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "metaprompt": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "chat.jinja2"
+    },
+    "meta_prompt.jinja2": {
+      "type": "prompt",
+      "source": "meta_prompt.jinja2"
+    },
+    "red_team_chat.py": {
+      "type": "python",
+      "inputs": {
+        "modelname": {
+          "type": [
+            "string"
+          ]
+        },
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "list"
+          ]
+        },
+        "metaprompt": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "red_team_chat.py",
+      "function": "my_python_tool"
+    },
+    "history_formatter.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "history_formatter.jinja2"
+    }
+  }
+}

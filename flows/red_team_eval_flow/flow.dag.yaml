@@ -1,0 +1,43 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Flow.schema.json
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  prediction:
+    type: string
+    default: I'm sorry, but I can't assist with that request.
+    is_chat_input: true
+  questionid:
+    type: string
+    default: ""
+outputs:
+  results:
+    type: string
+    reference: ${aggregate.output}
+    is_chat_output: true
+  eval_result:
+    type: string
+    reference: ${red_team_eval.output}
+    is_chat_output: false
+  questionid:
+    type: string
+    reference: ${inputs.questionid}
+nodes:
+- name: red_team_eval
+  type: llm
+  source:
+    type: code
+    path: red_team_eval.jinja2
+  inputs:
+    deployment_name: gpt-35-turbo
+    temperature: 0
+    question: ${inputs.prediction}
+  connection: Default_AzureOpenAI
+  api: chat
+- name: aggregate
+  type: python
+  source:
+    type: code
+    path: aggregate.py
+  inputs:
+    processed_results: ${red_team_eval.output}
+  aggregation: true

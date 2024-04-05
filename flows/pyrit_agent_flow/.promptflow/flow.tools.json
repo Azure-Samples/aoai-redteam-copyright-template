@@ -1,0 +1,46 @@
+{
+  "package": {},
+  "code": {
+    "pyrit_agent.py": {
+      "type": "python",
+      "inputs": {
+        "pyrit_modelname": {
+          "type": [
+            "string"
+          ]
+        },
+        "pyrit_connection": {
+          "type": [
+            "AzureOpenAIConnection"
+          ]
+        },
+        "agent_modelname": {
+          "type": [
+            "string"
+          ]
+        },
+        "agent_connection": {
+          "type": [
+            "AzureOpenAIConnection"
+          ]
+        },
+        "objective": {
+          "type": [
+            "string"
+          ]
+        },
+        "metaprompt": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "pyrit_agent.py",
+      "function": "my_python_tool"
+    },
+    "meta_prompt.jinja2": {
+      "type": "prompt",
+      "source": "meta_prompt.jinja2"
+    }
+  }
+}
